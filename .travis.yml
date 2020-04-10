@@ -4,7 +4,7 @@ services:
   - docker
 
 before_install:
-  - docker build klimandrew/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t klimandrew/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run -e CI=true klimandrew/react-test yarn test
