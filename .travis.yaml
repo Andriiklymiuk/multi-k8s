@@ -15,7 +15,7 @@ before_install:
   - gcloud config set compute/europe-west1-c
   - gcloud container clusters get-credentials multi-cluster
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t klimandrew/react-test -f ./client/Dockerfile.dev ./client/Dockerfile.dev
+  - docker build -t klimandrew/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run -e CI=true klimandrew/react-test yarn test
