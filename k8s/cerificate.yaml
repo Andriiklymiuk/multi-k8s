@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: recoh-life-tls
+spec:
+  secretName: recoh-life
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: recoh.life
+  dnsNames:
+    - recoh.life
+    - www.recoh.life
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - recoh.life
+          - www.recoh.life
